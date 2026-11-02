@@ -179,3 +179,54 @@ main{padding-bottom:110px}
   color:#7C8780;
 }
 .credit span{color:var(--gr)}
+/* ── Signature strip: pinned to the very bottom ───── */
+.credit{
+  position:fixed;
+  left:0; right:0; bottom:0;
+  z-index:25;
+  margin:0;
+  padding:6px 10px calc(6px + env(safe-area-inset-bottom));
+  background:rgba(11,14,12,.94);
+  backdrop-filter:blur(16px);
+  text-align:center;
+  font:700 9px/1 Manrope,sans-serif;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:#7C8780;
+}
+.credit span{color:var(--gr)}
+.tabs{
+  bottom:calc(21px + env(safe-area-inset-bottom));
+  padding:8px;
+}
+.toast{bottom:calc(112px + env(safe-area-inset-bottom))}
+main{padding-bottom:132px}
+
+/* ── Collapsible add-item ─────────────────────────── */
+.addwrap{padding:0 16px 12px}
+.fab-add{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--gr);color:#0B0E0C;border:0;
+  display:grid;place-items:center;
+  box-shadow:0 6px 18px rgba(111,207,114,.25);
+  transition:transform .15s;
+}
+.fab-add:active{transform:scale(.92)}
+.fab-add .ic{width:20px;height:20px}
+.addform{display:flex;gap:8px;align-items:center}
+.addform[hidden]{display:none}
+.addform input{
+  flex:1;min-width:0;height:46px;padding:0 14px;border-radius:12px;
+  background:var(--s1);border:1px solid var(--line);color:var(--tx);
+  font:600 15px Manrope;outline:0;
+}
+.addform input:focus{border-color:#3E7A46}
+.addgo{
+  height:46px;padding:0 16px;border:0;border-radius:12px;
+  background:var(--gr);color:#0B0E0C;font:800 14px Manrope;
+}
+.addx{
+  flex:none;width:46px;height:46px;border-radius:12px;
+  border:1px solid var(--line);background:var(--s1);color:var(--mu);
+  display:grid;place-items:center;
+}
