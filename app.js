@@ -320,7 +320,10 @@ function shareList() {
 }
 
 /* ── Manual add (FAB + composer) ── */
-function openComposer()  { $('#composer').hidden = false; $('#fab').hidden = true; $('#cName').focus(); }
+function closeComposer() { 
+  $('#composer').hidden = true;  
+  $('#fab').hidden = false; 
+}
 function closeComposer() { $('#composer').hidden = true;  $('#fab').hidden = currentTab === 'list'; }
 function addManual() {
   const name = $('#cName').value.trim();
