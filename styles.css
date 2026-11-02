@@ -230,3 +230,19 @@ main{padding-bottom:132px}
   border:1px solid var(--line);background:var(--s1);color:var(--mu);
   display:grid;place-items:center;
 }
+/* ── Tweaks: Pinned signature + Left circle button ── */
+.credit {
+  position: fixed; left: 0; right: 0; bottom: calc(68px + var(--safe));
+  z-index: 14; text-align: center;
+  font: 700 10px/1 Manrope, sans-serif; /* Smaller, a bit bolder */
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #7C8780;
+  background: linear-gradient(transparent, var(--bg) 60%); /* Fades so it doesn't block your list */
+  padding-bottom: 6px; pointer-events: none;
+}
+.credit span { color: var(--gr); }
+
+.fab {
+  right: auto; left: 18px; /* Move to the left side */
+  border-radius: 999px; /* Make it a perfect circle */
+}
