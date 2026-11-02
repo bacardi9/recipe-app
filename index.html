@@ -22,7 +22,6 @@
 </header>
 
 <main>
-  <!-- DISCOVER -->
   <section id="view-search" class="view active">
     <form id="searchForm" class="searchbar" autocomplete="off">
       <svg viewBox="0 0 24 24" class="ic"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -37,7 +36,6 @@
     </div>
   </section>
 
-  <!-- SAVED -->
   <section id="view-saved" class="view">
     <div class="viewhead"><h2>Saved recipes</h2><span id="savedCount" class="count"></span></div>
     <div id="savedGrid" class="grid"></div>
@@ -48,54 +46,21 @@
     </div>
   </section>
 
-  <!-- LIST -->
   <section id="view-list" class="view">
     <div class="viewhead">
       <h2>Shopping list</h2>
-      <div class="headacts">
-        <button id="shareList" class="linkbtn">Share</button>
-        <button id="clearDone" class="linkbtn">Clear done</button>
-      </div>
-    </div>
-    <div class="addwrap">
-      <button id="fabAdd" class="fab-add" aria-label="Add item">
-        <svg viewBox="0 0 24 24" class="ic"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-      </button>
-      <form id="addForm" class="addform" hidden>
-        <input id="addInput" type="text" placeholder="Add an item…" autocomplete="off">
-        <button type="submit" class="addgo">Add</button>
-        <button type="button" id="addClose" class="addx" aria-label="Minimize">
-          <svg viewBox="0 0 24 24" class="ic"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
-      </form>
+      <button id="clearDone" class="linkbtn">Clear done</button>
     </div>
     <ul id="list"></ul>
-    <p id="listFoot" class="foot" hidden>Checked items auto-clear after 24 hours.</p>
     <div id="listEmpty" class="empty" hidden>
       <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.5a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/></svg>
       <h3>Your list is empty</h3>
-      <p>Open a recipe and send its ingredients here, or tap + to add your own.</p>
+      <p>Open a recipe and send its ingredients here, or tap the + button.</p>
     </div>
-   </section>
+  </section>
+</main>
 
-    </main>
-
-   <footer class="credit">Developed by <span>Amran Hiluf</span></footer>
-
-   <nav class="tabs">
-
-<button id="fab" class="fab" hidden aria-label="Add item">
-  <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
-</button>
-
-<form id="composer" class="composer" hidden autocomplete="off">
-  <input id="cName" placeholder="Add an item…" maxlength="60">
-  <input id="cQty" placeholder="qty" maxlength="12">
-  <button type="submit" class="cadd">Add</button>
-  <button type="button" id="cCancel" class="ccancel" aria-label="Close">
-    <svg viewBox="0 0 24 24" class="ic"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-  </button>
-</form>
+<footer class="credit">Developed by <span>Amran Hiluf</span></footer>
 
 <nav class="tabs">
   <button class="tab active" data-view="search">
@@ -113,7 +78,19 @@
   </button>
 </nav>
 
-<!-- RECIPE SHEET -->
+<button id="fab" class="fab" aria-label="Add item">
+  <svg viewBox="0 0 24 24" class="ic"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+</button>
+
+<form id="composer" class="composer" hidden>
+  <input id="cName" placeholder="Item name" autocomplete="off" required>
+  <input id="cQty" placeholder="Qty" autocomplete="off">
+  <button type="submit" class="cadd">Add</button>
+  <button type="button" id="cClose" class="cx" aria-label="Close">
+    <svg viewBox="0 0 24 24" class="ic"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</form>
+
 <div id="sheet" class="sheet" aria-hidden="true">
   <div class="scrim" data-close></div>
   <div class="panel">
@@ -121,10 +98,10 @@
     <div class="hero" id="hero">
       <img id="dImg" alt="">
       <div class="hero-scrim"></div>
-      <button id="dPlay" class="play" hidden aria-label="Play video">
+      <button id="dPlay" class="play" hidden aria-label="Watch full video on YouTube">
         <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
       </button>
-      <button class="sheet-close" data-close aria-label="Close">
+      <button class="sheet-close" data-close>
         <svg viewBox="0 0 24 24" class="ic"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
       <div class="hero-meta">
@@ -135,14 +112,7 @@
     <div class="sheet-body">
       <h4>Ingredients <span id="dSel" class="hint"></span></h4>
       <ul id="dIng" class="ings"></ul>
-      <div class="cta-wrap">
-        <div class="cta-row">
-          <button id="saveBtn" class="savebtn" aria-label="Save recipe">
-            <svg viewBox="0 0 24 24" class="ic"><path d="M6 3h12v18l-6-4.5L6 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          </button>
-          <button id="addSel" class="cta">Add to shopping list</button>
-        </div>
-      </div>
+      <div class="cta-wrap"><button id="addSel" class="cta">Add to shopping list</button></div>
       <h4>Method</h4>
       <p id="dSteps"></p>
     </div>
