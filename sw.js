@@ -1,5 +1,5 @@
 const CACHE = 'mise-v2';   // bumped: old caches self-destruct on update
-const SHELL = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon.svg'];
+const SHELL = ['./', './index.html', './styles.css', './app.js', './manifest.webmanifest', './icon-192.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)));
