@@ -260,3 +260,28 @@ main{padding-bottom:132px}
   bottom: calc(80px + var(--safe));
   align-items: center;
 }
+/* ── Footer pinned at bottom + left circular FAB ── */
+.credit {
+  position: fixed; left: 0; right: 0; bottom: calc(68px + var(--safe));
+  z-index: 14; text-align: center;
+  font: 700 10px/1 Manrope, sans-serif; /* Smaller, a bit bolder */
+  letter-spacing: .12em; text-transform: uppercase;
+  color: #7C8780;
+  background: linear-gradient(transparent, var(--bg) 60%);
+  padding-bottom: 6px; pointer-events: none;
+}
+.credit span { color: var(--gr); }
+
+.fab {
+  left: 18px; right: auto; /* Move to LEFT */
+  bottom: calc(80px + var(--safe));
+  width: 54px; height: 54px; /* Perfect circle */
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(111,207,114,.35); /* Green glow */
+}
+
+.composer {
+  left: 18px; right: 86px; /* Start where FAB was, leave room for it on right */
+  bottom: calc(80px + var(--safe));
+  align-items: center;
+}
