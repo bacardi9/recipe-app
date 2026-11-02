@@ -1,6 +1,6 @@
 {
-  "name": "Mise — Recipes & Shopping List",
-  "short_name": "Mise",
+    "name": "My Recipe",
+  "short_name": "My Recipe",
   "description": "Search recipes, save favourites, build your shopping list.",
   "id": "./",
   "start_url": "./",
