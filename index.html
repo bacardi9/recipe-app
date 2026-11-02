@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mise — Cook. Shop. Done.</title>
+<meta name="theme-color" content="#0B0E0C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">mise<span>.</span></div>
+  <button id="installBtn" class="install" hidden>Get the app</button>
+</header>
+
+<main>
+  <!-- DISCOVER -->
+  <section id="view-search" class="view active">
+    <form id="searchForm" class="searchbar" autocomplete="off">
+      <svg viewBox="0 0 24 24" class="ic"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" placeholder="Search dishes or ingredients" enterkeyhint="search">
+    </form>
+    <div id="chips" class="chips"></div>
+    <div id="results" class="grid"></div>
+    <div id="searchEmpty" class="empty">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M4 10h16M6 10c0 6 2 9 6 9s6-3 6-9"/><path d="M9 6c0-1.5 1-2 1-3M13 6c0-1.5 1-2 1-3"/></svg>
+      <h3>What are we cooking?</h3>
+      <p>Search any dish or ingredient, or tap a category above.</p>
+    </div>
+  </section>
+
+  <!-- SAVED -->
+  <section id="view-saved" class="view">
+    <div class="viewhead"><h2>Saved recipes</h2><span id="savedCount" class="count"></span></div>
+    <div id="savedGrid" class="grid"></div>
+    <div id="savedEmpty" class="empty" hidden>
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M6 3h12v18l-6-4.5L6 21z"/></svg>
+      <h3>Nothing saved yet</h3>
+      <p>Tap the bookmark on any recipe to keep it here.</p>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <section id="view-list" class="view">
+    <div class="viewhead">
+      <h2>Shopping list</h2>
+      <div class="headacts">
+        <button id="shareList" class="linkbtn">Share</button>
+        <button id="clearDone" class="linkbtn">Clear done</button>
+      </div>
+    </div>
+    <ul id="list"></ul>
+    <p id="listFoot" class="foot" hidden>Checked items auto-clear after 24 hours.</p>
+    <div id="listEmpty" class="empty" hidden>
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M2 3h3l2.6 12.5a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.2L21 8H6"/></svg>
+      <h3>Your list is empty</h3>
+      <p>Open a recipe and send its ingredients here, or tap + to add your own.</p>
+    </div>
+  </section>
+</main>
+
+<button id="fab" class="fab" hidden aria-label="Add item">
+  <svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+</button>
+
+<form id="composer" class="composer" hidden autocomplete="off">
+  <input id="cName" placeholder="Add an item…" maxlength="60">
+  <input id="cQty" placeholder="qty" maxlength="12">
+  <button type="submit" class="cadd">Add</button>
+  <button type="button" id="cCancel" class="ccancel" aria-label="Close">
+    <svg viewBox="0 0 24 24" class="ic"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</form>
+
+<nav class="tabs">
+  <button class="tab active" data-view="search">
+    <svg viewBox="0 0 24 24" class="ic"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.5-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    Discover
+  </button>
+  <button class="tab" data-view="saved">
+    <svg viewBox="0 0 24 24" class="ic"><path d="M6 3h12v18l-6-4.5L6 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    Saved
+  </button>
+  <button class="tab" data-view="list">
+    <svg viewBox="0 0 24 24" class="ic"><circle cx="9" cy="20" r="1.6" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="20" r="1.6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 3h3l2.6 12.5a1.5 1.5 0 0 0 1.5 1.2h8.6a1.5 1.5 0 0 0 1.5-1.2L21 8H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+    List
+    <span id="listBadge" class="badge" hidden>0</span>
+  </button>
+</nav>
+
+<!-- RECIPE SHEET -->
+<div id="sheet" class="sheet" aria-hidden="true">
+  <div class="scrim" data-close></div>
+  <div class="panel">
+    <div class="grab"></div>
+    <div class="hero" id="hero">
+      <img id="dImg" alt="">
+      <div class="hero-scrim"></div>
+      <button id="dPlay" class="play" hidden aria-label="Play video">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+      </button>
+      <button class="sheet-close" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" class="ic"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <div class="hero-meta">
+        <h3 id="dTitle"></h3>
+        <div id="dMeta" class="metarow"></div>
+      </div>
+    </div>
+    <div class="sheet-body">
+      <h4>Ingredients <span id="dSel" class="hint"></span></h4>
+      <ul id="dIng" class="ings"></ul>
+      <div class="cta-wrap">
+        <div class="cta-row">
+          <button id="saveBtn" class="savebtn" aria-label="Save recipe">
+            <svg viewBox="0 0 24 24" class="ic"><path d="M6 3h12v18l-6-4.5L6 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </button>
+          <button id="addSel" class="cta">Add to shopping list</button>
+        </div>
+      </div>
+      <h4>Method</h4>
+      <p id="dSteps"></p>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"><span id="toastMsg"></span><button id="toastAct" hidden></button></div>
+
+<script src="app.js"></script>
+</body>
+</html>
