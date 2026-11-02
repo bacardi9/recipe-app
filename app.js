@@ -324,7 +324,10 @@ function closeComposer() {
   $('#composer').hidden = true;  
   $('#fab').hidden = false; 
 }
-function closeComposer() { $('#composer').hidden = true;  $('#fab').hidden = currentTab === 'list'; }
+function closeComposer() { 
+  $('#composer').hidden = true;  
+  $('#fab').hidden = false; 
+}
 function addManual() {
   const name = $('#cName').value.trim();
   if (!name) { toast('Type an item name'); $('#cName').focus(); return; }
