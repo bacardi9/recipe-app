@@ -246,3 +246,17 @@ main{padding-bottom:132px}
   right: auto; left: 18px; /* Move to the left side */
   border-radius: 999px; /* Make it a perfect circle */
 }
+/* ── Left circular FAB + aligned composer ── */
+.fab {
+  left: 18px; right: auto; /* Move to LEFT */
+  bottom: calc(80px + var(--safe));
+  width: 54px; height: 54px; /* Perfect circle */
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(111,207,114,.35); /* Green glow */
+}
+
+.composer {
+  left: 18px; right: 86px; /* Start where FAB was, leave room for it on right */
+  bottom: calc(80px + var(--safe));
+  align-items: center;
+}
